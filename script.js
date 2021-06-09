@@ -63,7 +63,7 @@ function draw() {
         }else {
             clearInterval(gameLoop);
             alert('Game Over');
-
+    
         }
     }
 }
@@ -86,5 +86,11 @@ function keyInput(e) {
     }
 }
 
+function clearResult() {
+    document.getElementById("gameBoard").reset();
+
+}
+
 drawGameCanvas();
+
 
