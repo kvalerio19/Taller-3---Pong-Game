@@ -14,6 +14,7 @@ let ballY = 150;
 let ballDx = 2;
 let ballDy = 4;
 
+
 function drawGameCanvas() {
     canvas = document.getElementById('gameBoard');
 
@@ -62,7 +63,11 @@ function draw() {
             ballDy = - ballDy;
         }else {
             clearInterval(gameLoop);
-            alert('Game Over');
+            //alert('Game Over');
+            //swal("Oops!", "Game Over!");
+            //displayMessage('Ocurrio un Error', 'warning');
+            error = "GAME OVER";
+            document.getElementById("gameOver").innerHTML = error;
     
         }
     }
@@ -86,10 +91,11 @@ function keyInput(e) {
     }
 }
 
-function clearResult() {
-    document.getElementById("gameBoard").reset();
+function resetGame(){
+    window.location.reload()
+    
+} 
 
-}
 
 drawGameCanvas();
 

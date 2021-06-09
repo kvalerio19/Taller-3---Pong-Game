@@ -8,14 +8,19 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+<body id="rst">
   <h1>
     Canvas Game
   </h1>
   <div>
     <canvas id="gameBoard" width="300" height="300"></canvas>
-    <input type="button" value="Restart" onclick="clearResult()">
+    <!-- <input type="button" value="Refresh Button" onClick="window.location.reload()">  -->
+    <p id="gameOver"></p>
   </div>
+  
+ 
+
+  <button type="button" onClick="resetGame()">Reset!</button>
 
   
   
