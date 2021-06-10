@@ -82,6 +82,7 @@ function draw() {
     fill('#ffff');
     textSize(24);
     text("Score: " + score, 10, 25);
+
 }
 
 
