@@ -8,11 +8,14 @@ const paddleH = 10;
 const paddleD = boardY - paddleH;
 const paddleW = 150;
 
+
 let paddleX = 150;
 let ballX = 150;
 let ballY = 150;
 let ballDx = 2;
 let ballDy = 4;
+
+let score = 0;
 
 
 function drawGameCanvas() {
@@ -20,14 +23,15 @@ function drawGameCanvas() {
 
     if (canvas.getContext) {
         context = canvas.getContext('2d');
-        gameLoop = setInterval (draw, 16);
-        window.addEventListener('keydown', keyInput, true);       
+        gameLoop = setInterval(draw, 16);
+        window.addEventListener('keydown', keyInput, true);
 
     }
 }
 
 
 function draw() {
+
     context.clearRect(0, 0, boardX, boardY);
 
     context.fillStyle = 'thistle';
@@ -51,31 +55,38 @@ function draw() {
     ballX += ballDx;
     ballY += ballDy;
 
+
     if (ballX + ballDx > boardX - 15 || ballX + ballDx < 15) {
-        ballDx = - ballDx;
+        ballDx = -ballDx;
 
     }
     if (ballY + ballDy < 10) {
-        ballDy = - ballDy;
+        ballDy = -ballDy;
 
     } else if (ballY + ballDx > boardY - 15) {
         if (ballX > paddleX && ballX < paddleX + paddleW) {
-            ballDy = - ballDy;
-        }else {
+            ballDy = -ballDy;
+            score++;
+        } else {
             clearInterval(gameLoop);
             //alert('Game Over');
             //swal("Oops!", "Game Over!");
             //displayMessage('Ocurrio un Error', 'warning');
             error = "GAME OVER";
             document.getElementById("gameOver").innerHTML = error;
-    
+
         }
+
+
     }
+    fill('#ffff');
+    textSize(24);
+    text("Score: " + score, 10, 25);
 }
 
 
 function keyInput(e) {
-    switch(e.keyCode) {
+    switch (e.keyCode) {
         case 37:
             paddleX -= 20;
             if (paddleX < 0) {
@@ -85,18 +96,16 @@ function keyInput(e) {
         case 39:
             paddleX += 20;
             if (paddleX > boardX - paddleW) {
-                paddleX = boardX- paddleW;
+                paddleX = boardX - paddleW;
             }
             break;
     }
 }
 
-function resetGame(){
+function resetGame() {
     window.location.reload()
-    
-} 
+
+}
 
 
 drawGameCanvas();
-
-

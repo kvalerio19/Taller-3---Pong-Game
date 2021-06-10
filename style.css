@@ -9,4 +9,8 @@ p {
   font-size: 18px;
   
 }
+
+canvas {
+  display: block;
+}
   
