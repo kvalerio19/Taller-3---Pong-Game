@@ -66,7 +66,7 @@ function draw() {
     } else if (ballY + ballDx > boardY - 15) {
         if (ballX > paddleX && ballX < paddleX + paddleW) {
             ballDy = -ballDy;
-            score++;
+            score++; // Collinsion Detection
         } else {
             clearInterval(gameLoop);
             //alert('Game Over');
@@ -76,12 +76,12 @@ function draw() {
             document.getElementById("gameOver").innerHTML = error;
 
         }
-
+        fill('#ffff');
+        textSize(24);
+        text('Score:' + score, 10, 25);
 
     }
-    fill('#ffff');
-    textSize(24);
-    text("Score: " + score, 10, 25);
+
 
 }
 
