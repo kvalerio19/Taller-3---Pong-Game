@@ -1,8 +1,8 @@
 p {
   line-height: 1.5;
-  /*padding: 10px 20px;*/
+  padding: 10px 20px;
   color: rgb(255, 0, 0);
-  /*padding-left: 82px;*/
+  padding-left: 82px;
   background-position: 25px center;
   background-repeat: no-repeat;
   font-weight: bold;
@@ -12,5 +12,7 @@ p {
 
 canvas {
   display: block;
-}
-  
+} 
+
+
+
